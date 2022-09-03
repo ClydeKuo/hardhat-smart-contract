@@ -56,7 +56,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
 
     log("Enter lottery with command:")
     const networkName = network.name == "hardhat" ? "localhost" : network.name
-    log(`yarn hardhat run scripts/enterRaffle.js --network ${networkName}`)
+    log(`pnpm hardhat run scripts/enterRaffle.js --network ${networkName}`)
     log("----------------------------------------------------")
 }
 

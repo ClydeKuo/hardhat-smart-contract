@@ -9,6 +9,7 @@ const RINKEBY_RPC_URL = process.env.RINKEBY_RPC_URL
 const RINKEBY_PRIVATE_KEY = process.env.RINKEBY_PRIVATE_KEY
 const LOCAL_RPC_URL = process.env.LOCAL_RPC_URL
 const LOCAL_PRIVATE_KEY = process.env.LOCAL_PRIVATE_KEY
+const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   defaultNetwork:"hardhat",
@@ -35,6 +36,13 @@ module.exports = {
       accounts: [RINKEBY_PRIVATE_KEY],
       chainId:4,
       blockConfirmations:6
+    },
+  },
+  etherscan: {
+    // yarn hardhat verify --network <NETWORK> <CONTRACT_ADDRESS> <CONSTRUCTOR_PARAMETERS>
+    apiKey: {
+        rinkeby: ETHERSCAN_API_KEY,
+        kovan: ETHERSCAN_API_KEY,
     },
   },
   gasReporter: {

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.7;
 
 contract BlindAuction {
     struct Bid {
@@ -91,23 +91,23 @@ contract BlindAuction {
 
         uint refund;
         for (uint i = 0; i < length; i++) {
-            Bid storage bid = bids[msg.sender][i];
-            (uint value, bool fake, bytes32 secret) =
+            Bid storage bidtemp = bids[msg.sender][i];
+            (uint value, bool fakeItem, bytes32 secretItem) =
                     (values[i], fake[i], secret[i]);
-            if (bid.blindedBid != keccak256(value, fake, secret)) {
+            if (bidtemp.blindedBid != keccak256(abi.encodePacked(value, fakeItem, secretItem))) {
                 // 出价未能正确披露
                 // 不返还订金
                 continue;
             }
-            refund += bid.deposit;
-            if (!fake && bid.deposit >= value) {
+            refund += bidtemp.deposit;
+            if (!fakeItem && bidtemp.deposit >= value) {
                 if (placeBid(msg.sender, value))
                     refund -= value;
             }
             // 使发送者不可能再次认领同一笔订金
-            bid.blindedBid = bytes32(0);
+            bidtemp.blindedBid = bytes32(0);
         }
-        msg.sender.transfer(refund);
+        payable(msg.sender).transfer(refund);
     }
 
     // 这是一个 "internal" 函数， 意味着它只能在本合约（或继承合约）内被调用
@@ -135,7 +135,7 @@ contract BlindAuction {
             // 接收者可以在 `transfer` 返回之前重新调用该函数。（可查看上面关于‘条件 -> 影响 -> 交互’的标注）
             pendingReturns[msg.sender] = 0;
 
-            msg.sender.transfer(amount);
+            payable(msg.sender).transfer(amount);
         }
     }
 
