@@ -32,7 +32,6 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
         ? 1
         : VERIFICATION_BLOCK_CONFIRMATIONS
 
-    log("----------------------------------------------------",networkConfig,chainId)
     const arguments = [
         vrfCoordinatorV2Address,
         subscriptionId,

@@ -20,21 +20,22 @@ const networkConfig = {
       callbackGasLimit: "500000", // 500,000 gas
       vrfCoordinatorV2: "0x6168499c0cFfCaCD319c818142124B7A15E857ab",
   },
+  5: {
+      name: "goerli",
+      PoolAddressesProvider:process.env.GOERLI_PoolAddressesProvider
+  },
   1: {
       name: "mainnet",
       keepersUpdateInterval: "30",
   },
 }
 
+
 const developmentChains = ["hardhat", "localhost"]
 const VERIFICATION_BLOCK_CONFIRMATIONS = 6
-const frontEndContractsFile = "../nextjs-smartcontract-lottery-fcc/constants/contractAddresses.json"
-const frontEndAbiFile = "../nextjs-smartcontract-lottery-fcc/constants/abi.json"
 
 module.exports = {
   networkConfig,
   developmentChains,
   VERIFICATION_BLOCK_CONFIRMATIONS,
-  frontEndContractsFile,
-  frontEndAbiFile,
 }

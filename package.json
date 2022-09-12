@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@chainlink/contracts": "^0.4.1",
+    "@openzeppelin/contracts": "^4.7.3",
     "harhat": "^1.0.1",
     "web3": "^1.7.4"
   },

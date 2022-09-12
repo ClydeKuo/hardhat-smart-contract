@@ -12,11 +12,14 @@ const LOCAL_PRIVATE_KEY = process.env.LOCAL_PRIVATE_KEY
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
-  defaultNetwork:"hardhat",
+  defaultNetwork:"goerli",
   solidity: {
     compilers: [
         {
             version: "0.8.7",
+        },
+        {
+          version: "0.8.10",
         },
         {
             version: "0.8.4",
@@ -37,12 +40,19 @@ module.exports = {
       chainId:4,
       blockConfirmations:6
     },
+    goerli: {
+      url: process.env.GOERLI_RPC_URL,
+      accounts: [process.env.GOERLI_PRIVATE_KEY],
+      chainId:5,
+      blockConfirmations:2,
+    },
   },
   etherscan: {
     // yarn hardhat verify --network <NETWORK> <CONTRACT_ADDRESS> <CONSTRUCTOR_PARAMETERS>
     apiKey: {
         rinkeby: ETHERSCAN_API_KEY,
         kovan: ETHERSCAN_API_KEY,
+        goerli:ETHERSCAN_API_KEY
     },
   },
   gasReporter: {

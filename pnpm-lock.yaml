@@ -5,6 +5,7 @@ specifiers:
   '@nomiclabs/hardhat-ethers': npm:hardhat-deploy-ethers@0.3.0-beta.13
   '@nomiclabs/hardhat-etherscan': ^3.1.0
   '@nomiclabs/hardhat-waffle': ^2.0.3
+  '@openzeppelin/contracts': ^4.7.3
   chai: ^4.3.6
   dotenv: ^16.0.1
   ethereum-waffle: ^3.4.4
@@ -22,6 +23,7 @@ specifiers:
 
 dependencies:
   '@chainlink/contracts': 0.4.1
+  '@openzeppelin/contracts': 4.7.3
   harhat: 1.0.1
   web3: 1.7.4
 
@@ -618,6 +620,10 @@ packages:
       ethers: 5.6.9
       hardhat: 2.10.0
     dev: true
+
+  /@openzeppelin/contracts/4.7.3:
+    resolution: {integrity: sha512-dGRS0agJzu8ybo44pCIf3xBaPQN/65AIXNgK8+4gzKd5kbvlqyxryUYVLJv7fK98Seyd2hDZzVEHSWAh0Bt1Yw==}
+    dev: false
 
   /@resolver-engine/core/0.3.3:
     resolution: {integrity: sha512-eB8nEbKDJJBi5p5SrvrvILn4a0h42bKtbCTri3ZxCGt6UvoQyp7HnGOfki944bUjBSHKK3RvgfViHn+kqdXtnQ==}
@@ -9382,7 +9388,7 @@ packages:
     dev: true
 
   github.com/ethereumjs/ethereumjs-abi/ee3994657fa7a427238e6ba92a84d0b529bbcde0:
-    resolution: {commit: ee3994657fa7a427238e6ba92a84d0b529bbcde0, repo: git+ssh://git@github.com/ethereumjs/ethereumjs-abi.git, type: git}
+    resolution: {tarball: https://codeload.github.com/ethereumjs/ethereumjs-abi/tar.gz/ee3994657fa7a427238e6ba92a84d0b529bbcde0}
     name: ethereumjs-abi
     version: 0.6.8
     dependencies:
