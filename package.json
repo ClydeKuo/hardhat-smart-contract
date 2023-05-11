@@ -12,8 +12,9 @@
   "dependencies": {
     "@aave/protocol-v2": "^1.0.1",
     "@chainlink/contracts": "^0.4.1",
-    "@openzeppelin/contracts": "^4.7.3",
+    "@openzeppelin/contracts": "4.7.0",
     "harhat": "^1.0.1",
+    "ko-sleep": "^1.1.4",
     "web3": "^1.7.4"
   },
   "devDependencies": {
