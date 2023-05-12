@@ -1,4 +1,3 @@
-// contracts/FlashLoanV2.sol
 // SPDX-License-Identifier: MIT
 pragma solidity 0.6.12;
 
@@ -19,20 +18,15 @@ contract flashloanv2 is FlashLoanReceiverBase {
       owner=msg.sender;
       // POOL = ILendingPool(provider.getLendingPool()); 
     }
-
-
-
-
     function approveErc(address _asset) public{
-
         uint256 amount = 2 * 1e18;
-        uint16 referral = 0;
-
-        // Approve LendingPool contract to move your DAI
         IERC20(_asset).approve(ADDRESSES_PROVIDER.getLendingPool(), amount);
-
-        // Deposit 1000 DAI
-        
+    }
+    function deposit(address _asset) public{
+        uint256 amount = 1 * 1e18;
+        uint16 referral = 0;
+        IERC20(_asset).approve(ADDRESSES_PROVIDER.getLendingPool(), amount);
+        LENDING_POOL.deposit(_asset, amount,address(this), referral);
     }
     function deposit2(address _asset) public{
         uint256 amount = 2 * 1e18;

@@ -4,18 +4,16 @@ require("@nomiclabs/hardhat-waffle");
 require("hardhat-gas-reporter");
 require("solidity-coverage");
 require("hardhat-deploy");
-const RINKEBY_RPC_URL = process.env.RINKEBY_RPC_URL
-const RINKEBY_PRIVATE_KEY = process.env.RINKEBY_PRIVATE_KEY
 const LOCAL_RPC_URL = process.env.LOCAL_RPC_URL
 const LOCAL_PRIVATE_KEY = process.env.LOCAL_PRIVATE_KEY
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
-  defaultNetwork:"goerli",
+  defaultNetwork:"spectrum",
   solidity: {
     compilers: [
         {
-            version: "0.8.7",
+            version: "0.8.14",
         },
         {
           version: "0.8.10",
@@ -36,18 +34,18 @@ module.exports = {
       url: LOCAL_RPC_URL,
       accounts: [LOCAL_PRIVATE_KEY],
     },
-    rinkeby: {
-      url: RINKEBY_RPC_URL,
-      accounts: [RINKEBY_PRIVATE_KEY],
-      chainId:4,
-      blockConfirmations:6
-    },
     goerli: {
       url: process.env.GOERLI_RPC_URL,
       accounts: [process.env.GOERLI_PRIVATE_KEY],
       chainId:5,
       blockConfirmations:2,
     },
+    spectrum:{
+      url: process.env.SPECTRUM_RPC_URL,
+      accounts: [process.env.SPECTRUM_PRIVATE_account2,process.env.SPECTRUM_PRIVATE_goerlitest,process.env.SPECTRUM_PRIVATE_account3,process.env.SPECTRUM_PRIVATE_account4,process.env.SPECTRUM_PRIVATE_account8],
+      chainId:20180430,
+      blockConfirmations:2,
+    }
   },
   etherscan: {
     // yarn hardhat verify --network <NETWORK> <CONTRACT_ADDRESS> <CONSTRUCTOR_PARAMETERS>
