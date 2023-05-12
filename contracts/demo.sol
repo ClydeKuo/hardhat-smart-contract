@@ -1,8 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
-
-contract demo {
+contract Demo {
   // event testEvent(uint indexed a,uint indexed b, bool indexed c,uint  d);
   function test()  public returns(uint8){
     uint8 a=3;
